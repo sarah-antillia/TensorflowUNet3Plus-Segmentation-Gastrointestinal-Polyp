@@ -319,6 +319,7 @@ class TensorflowUNet3Plus(TensorflowUNet):
     # last layer does not have batchnorm and relu
     d = self.conv_block(d1, output_channels, n=1, is_bn=False, is_relu=False)
 
+    # 2023/06/29 Modified activate function from softmax to sigmoid 
     #output = k.activations.softmax(d)
     output = tf.keras.layers.Activation(activation='sigmoid')(d)
 
