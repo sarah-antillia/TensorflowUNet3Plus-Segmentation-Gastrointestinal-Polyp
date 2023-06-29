@@ -141,6 +141,12 @@ to avoid memory allocation error.<br>
       filters.append(base_filters * (2**i))
     print("--- filters {}".format(filters))
    
+
+    # 2023/06/29 Modified activate function from softmax to sigmoid 
+    #output = k.activations.softmax(d)
+    output = tf.keras.layers.Activation(activation='sigmoid')(d)
+
+    return tf.keras.Model(inputs=input_layer, outputs=[output], name='UNet_3Plus')
 </pre>
 <br>
 
